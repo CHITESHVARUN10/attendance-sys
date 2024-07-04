@@ -36,7 +36,7 @@ export default function Register() {
 
       if (response.status === 200) {
         alert("Registration successful!");
-        navigation.navigate("Main"); // Redirect to "Main" page
+        navigation.navigate("Main"); 
       } else {
         alert('Registration failed');
       }
