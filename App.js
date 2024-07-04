@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, StyleSheet } from 'react-native';
 import Login from './components/Login';
 import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword';
@@ -23,10 +23,10 @@ const HomeScreen = ({ navigation }) => {
   };
 
   return (
-    <View className="flex-1 bg-gray-100">
+    <View style={styles.container}>
       <NavBar title="Home" onLeftPress={handleLeftPress} onRightPress={handleRightPress} />
-      <View className="flex-1 justify-center items-center p-4">
-        <Text className="text-2xl mb-6 text-black">Home Screen</Text>
+      <View style={styles.content}>
+        <Text style={styles.title}>Home Screen</Text>
         <Button
           title="Login/Register"
           onPress={() => navigation.navigate('Login')}
@@ -49,5 +49,23 @@ const App = () => {
     </NavigationContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f3f4f6', // Tailwind's gray-100 color
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 16,
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 24,
+    color: '#000',
+  },
+});
 
 export default App;
